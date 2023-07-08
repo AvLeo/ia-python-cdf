@@ -1,21 +1,21 @@
 from logic import *
 
-rojo = Symbol('rojo')
-azul = Symbol('azul')
-verde = Symbol('verde')
-tribus = [rojo, azul, verde]
+# rojo = Symbol("rojo")
+# azul = Symbol("azul")
+# verde = Symbol("verde")
+tribus = ['rojo', 'azul', 'verde']
 
-persona_uno = Symbol('Persona1')
-persona_dos = Symbol('Persona2')
-persona_tres = Symbol('Persona3')
-personas = [persona_uno,persona_dos,persona_tres]
+# persona_uno = Symbol("Persona1")
+# persona_dos = Symbol("Persona2")
+# persona_tres = Symbol("Persona3")
+personas = ['persona_uno','persona_dos','persona_tres']
 
 symbols = []
 knowledge = And()
 
 for persona in personas:
     for tribu in tribus:
-        symbols.append(f'{persona}{tribu}')
+        symbols.append(Symbol(f'{persona}{tribu}'))
 
 for persona in personas:
     knowledge.add(Or(
@@ -44,10 +44,11 @@ for tribu in tribus:
 
     
 
-knowledge.add(Not(Symbol('Persona3rojo')))
+knowledge.add(Not(Symbol('persona_tresrojo')))
 knowledge.add(Or(
-    Symbol('Per')
+    Symbol('perosona_dosazul'), Symbol('persona_dosrojo')
 ))
+knowledge.add(Symbol('persona_unoverde'))
 print(knowledge)
 
 for symbol in symbols:
